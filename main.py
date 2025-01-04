@@ -53,9 +53,7 @@ async def on_ready():
 
 class TicketView(View):
     def __init__(self):
-        super().__init__()
-
-        # เพิ่มปุ่มเปิดตั๋ว
+        super().__init__(timeout=None)  # กำหนดให้ View ไม่มีเวลา Timeout
         self.open_ticket_button = Button(label="🤍เปิดตั๋วคุยแอดมิน❤", style=discord.ButtonStyle.green)
         self.open_ticket_button.callback = self.open_ticket  # ตั้งค่า callback ให้ฟังก์ชัน open_ticket
         self.add_item(self.open_ticket_button)
